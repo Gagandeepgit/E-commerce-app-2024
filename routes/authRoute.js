@@ -1,11 +1,18 @@
 import express from 'express';
-import {registerController} from '../controllers/authController.js';
+import {registerController, loginController, testcontroller} from '../controllers/authController.js';
+import {requireSignIn, isAdmin} from '../middlewares/authMiddleware.js'
 
 //router object
 const router = express.Router();
 
 //routing
 //REGISTER || METHOD POST
-router.post('/register', registerController)
+router.post('/register', registerController);
+
+//LOGIN
+router.post('/login', loginController);
+
+//Test Route
+router.get('/test', requireSignIn, isAdmin , testcontroller);
 
 export default router;
