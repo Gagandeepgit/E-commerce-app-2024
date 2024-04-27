@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from './config/db.js';
 import authRouter from './routes/authRoute.js';
+import cors from "cors";
 
 //configure env
 dotenv.config(); //as it is in the root directory so we dont need to define oath inside bracket
@@ -15,6 +16,7 @@ const app = express();
 connectDB();
 
 //Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
