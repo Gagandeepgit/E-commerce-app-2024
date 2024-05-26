@@ -1,8 +1,9 @@
 import React,{ useState} from 'react'
 import Layout from '../../components/layout/Layout';
-import { toast } from 'react-toastify';
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -20,8 +21,8 @@ const Register = () => {
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
         {name, email, password, phone, address}
       );
-      if (res.data.success){
-        toast.success(res.data.message);
+      if (res && res.data.success){
+        toast.success(res.data && res.data.message);
         navigate("/login");
       } else {
         toast.error(res.data.message)
