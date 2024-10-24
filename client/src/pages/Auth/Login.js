@@ -41,7 +41,7 @@ const Login = () => {
       console.log(error);
       toast.error("Something went wrong");
     }
-  }
+  };
 
   return (
     <Layout title="Register - Ecommer App">
