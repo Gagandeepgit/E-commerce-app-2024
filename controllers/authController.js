@@ -122,6 +122,7 @@ export const loginController = async(req, res) => {
     }
 };
 
+
 //Forgot Password
 
 export const forgotPasswordContoller = async (req, res) => {
